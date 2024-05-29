@@ -79,7 +79,7 @@ void setup() {
     Serial.println("SD Card initialized successfully.");
   }
 
-  // Simplified filename handling
+  //  filename handling
   char filename[] = "data_log.csv"; // Simpler, static filename
   if (!SD.exists(filename)) {
     dataFile = SD.open(filename, FILE_WRITE);
@@ -197,7 +197,7 @@ void monitorAndLogData() {
 }
 
 void logData(String dateStamp, String timeStamp, int ldr1, int ldr2, int ldr3, int ldr4, int ldrAvg, float solarVoltage, float solarCurrent, float solarPower, float batteryVoltage, float batteryCurrent, float batteryPower, float temp, float humidity, float pressure) {
-  // Use FILE_WRITE to append to the file if it exists; this does not truncate existing content.
+  
   dataFile = SD.open("data_log.csv", FILE_WRITE);
   if (dataFile) {
     dataFile.print(dateStamp + "," + timeStamp + ",");
